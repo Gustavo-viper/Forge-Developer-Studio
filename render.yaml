@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: forge-developer-studio-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: FORGE_SERVER_PORT
+        value: "10000"
+      - key: VITE_SUPABASE_URL
+        value: https://iinprnpqjrfvpmjqtszx.supabase.co
+      - key: VITE_SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: FORGE_AI_PROVIDER
+        sync: false
+      - key: FORGE_AI_API_KEY
+        sync: false
+
+  - type: web
+    name: forge-developer-studio-web
+    runtime: static
+    buildCommand: npm install && npm run build:web
+    staticPublishPath: ./web/dist
+    envVars:
+      - key: VITE_SUPABASE_URL
+        value: https://iinprnpqjrfvpmjqtszx.supabase.co
+      - key: VITE_SUPABASE_PUBLISHABLE_KEY
+        sync: false

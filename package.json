@@ -1,0 +1,48 @@
+{
+  "name": "forge-developer-studio",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Forge Developer Studio - Desktop + Web + Forge IA",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:server\"",
+    "dev:web": "vite web --host 0.0.0.0",
+    "dev:server": "node server/index.cjs",
+    "desktop": "electron .",
+    "build:web": "vite build web",
+    "dist": "npm run build:web && electron-builder",
+    "start": "node server/index.cjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.58.0",
+    "cors": "2.8.5",
+    "dotenv": "17.2.2",
+    "express": "5.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "9.2.1",
+    "electron": "38.2.0",
+    "electron-builder": "26.0.12",
+    "vite": "7.1.7"
+  },
+  "build": {
+    "appId": "com.forgestudios.developerstudio",
+    "productName": "Forge Developer Studio",
+    "directories": { "output": "release" },
+    "files": [
+      "desktop/**/*",
+      "web/dist/**/*",
+      "server/**/*",
+      "shared/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  }
+}
