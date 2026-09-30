@@ -1,11 +1,30 @@
-# Forge Developer Studio
+# Forge Developer Studio — v1.0.0 FULL
 
-Desktop developer hub for Forge Studios.
+IDE desktop Windows da Forge Studios.
 
-## Run
-1. Install Node.js LTS.
-2. In this folder run `npm install`.
-3. Run `npm start`.
+## Requisitos
+- Windows 10/11
+- Node.js 20+ recomendado
+- npm
 
-## Build Windows
-`npm run build`
+## Rodar
+```bash
+npm install
+npm start
+```
+
+## Gerar instalador
+```bash
+npm run dist
+```
+
+Os arquivos são gerados em `dist/`.
+
+## Arquitetura
+- `src/main.js`: processo principal Electron e operações locais
+- `src/preload.js`: ponte segura IPC
+- `src/index.html`: interface
+- `src/style.css`: UI
+- `src/app.js`: lógica da IDE
+
+A versão foi desenhada para receber posteriormente integrações reais de GitHub, Supabase, Gradle/Android, IA, plugins e atualizações.
