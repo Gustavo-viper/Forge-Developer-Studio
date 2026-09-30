@@ -1,0 +1,9 @@
+{
+  "name": "forge-developer-studio",
+  "version": "1.0.0",
+  "description": "Forge Developer Studio - central de desenvolvimento para programadores",
+  "main": "src/main.js",
+  "scripts": {"start":"electron .","dev":"electron .","build":"electron-builder"},
+  "devDependencies": {"electron":"^38.0.0","electron-builder":"^26.0.0"},
+  "build": {"appId":"com.forge.studios.developerstudio","productName":"Forge Developer Studio","win":{"target":"nsis"}}
+}
